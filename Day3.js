@@ -10,8 +10,6 @@ let count = 0;
 splitLines.forEach((row, index) => {
     const splitTree = row.split('');
     const moveRight = splitTree[index + index + index]
-    const moveMoreRight = index + index + index
-
     if(moveRight === '#') {
         count ++;
     }
