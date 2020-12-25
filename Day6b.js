@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { compileFunction } = require('vm');
 
 const groups = fs.readFileSync('Day6.txt', {encoding: 'utf-8'}).split('\n\n');
 
@@ -18,18 +19,14 @@ for(i = 0; i < groups.length; i++) {
             } else {
                 counter[letter] = 1;
             }
-        })
-        
+        })   
     }
-    if (Object.values(counter).indexOf(persons.length) > -1) {
-        count++
-     }
-
-    
-    counter = {}
-
-
-    
+        Object.values(counter).forEach((letterCount) => {
+            if(letterCount === persons.length) {
+                count ++
+            }
+        })
+    counter = {}   
 }
 
 console.log(count)
